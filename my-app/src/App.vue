@@ -1,29 +1,39 @@
 <template>
   <div id="app">
-    hello world
     <router-view></router-view>
+    <ul>
+
+        <router-link to="/films" custom v-slot="{ navigate, isActive}">
+          <li @click="navigate" :class ="isActive ? 'active' : ''">
+          电影</li>
+        </router-link>
+        <router-link to="/cinemas" custom v-slot="{ navigate, isActive}">
+          <li @click="navigate" :class ="isActive ? 'active' : ''">
+          影院</li></router-link>
+          <router-link to="/center" custom v-slot="{ navigate, isActive}">
+          <li @click="navigate" :class ="isActive ? 'active' : ''">
+          我的</li></router-link>
+    </ul>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  data () {
+    return {
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
     }
   }
 }
+</script>
+
+<style lang="scss">
+*{
+  margin:0;
+  padding: 0;
+}
+.active{
+  color:red;
+}
+
 </style>
